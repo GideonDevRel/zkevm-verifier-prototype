@@ -1,0 +1,38 @@
+# Lean/Lake build artifacts
+.lake/build/
+.lake/packages/
+*.olean
+*.ilean
+*.c.hash
+*.olean.hash
+*.trace
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Docker
+docker-build.log
+stable-build*.log
+mathlib-build*.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+generate_simplified_proofs.sh
+fix_proofs.sh

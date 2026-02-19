@@ -1,0 +1,10 @@
+# zkEVM Circuit Verifier - Python Dependencies
+# Minimal dependencies for prototype
+
+# No external dependencies required for core functionality
+# All verification done via Lean4 (installed separately)
+
+# Optional: For future enhancements
+# pyyaml>=6.0        # Config file parsing
+# click>=8.0         # CLI framework
+# rich>=13.0         # Terminal formatting

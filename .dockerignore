@@ -1,0 +1,67 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Test outputs
+output/
+.pytest_cache/
+
+# Temporary files
+*.tmp
+*.log
+
+# Documentation (keep in image but exclude development versions)
+*.draft.md
+
+# Example data (if any)
+examples/data/
+
+# Large files not needed in container
+*.mp4
+*.mov
+*.avi
+
+# Development scripts not needed in production
+dev-*.sh
+test-*.py
+
+# Keep these (comment means include)
+# Dockerfile
+# docker-compose.yml
+# requirements.txt
+# *.sh (demo scripts needed)
+# circuits/
+# src/
+# proofs/
+# reports/
+# *.md (documentation needed)

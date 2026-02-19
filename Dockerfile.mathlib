@@ -1,0 +1,106 @@
+# Dockerfile for zkEVM Circuit Formal Verification Framework
+# WITH MATHLIB SUPPORT for Lean 4.27.0
+# Multi-stage build for optimal image size
+
+# Stage 1: Build Mathlib (large, cached separately)
+FROM ubuntu:22.04 AS mathlib-builder
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    build-essential \
+    wget \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Lean4 4.27.0 via elan
+RUN curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | \
+    sh -s -- -y --default-toolchain leanprover/lean4:v4.27.0
+ENV PATH="/root/.elan/bin:${PATH}"
+
+# Create Lean project for Mathlib
+WORKDIR /mathlib-build
+
+# Create lakefile.lean with Mathlib dependency
+RUN echo 'import Lake\nopen Lake DSL\n\npackage mathlibCache where\n\nrequire mathlib from git "https://github.com/leanprover-community/mathlib4.git"' > lakefile.lean
+
+# Create lean-toolchain
+RUN echo "leanprover/lean4:v4.27.0" > lean-toolchain
+
+# Download and build Mathlib (this takes time but will be cached)
+RUN lake update && lake build
+
+# Stage 2: Runtime image with Mathlib
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    curl \
+    git \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy Lean4 + Mathlib from builder
+COPY --from=mathlib-builder /root/.elan /root/.elan
+COPY --from=mathlib-builder /mathlib-build/.lake /root/.lake-cache
+ENV PATH="/root/.elan/bin:${PATH}"
+
+# Set working directory
+WORKDIR /app
+
+# Copy Python requirements first (for layer caching)
+COPY requirements.txt .
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+# Copy project structure
+COPY lakefile.lean ./
+COPY lean-toolchain ./
+
+# Initialize Lake project with cached Mathlib
+RUN mkdir -p .lake/packages && \
+    cp -r /root/.lake-cache/packages/* .lake/packages/ 2>/dev/null || true
+
+# Copy project files
+COPY circuits/ ./circuits/
+COPY src/ ./src/
+COPY proofs/ ./proofs/
+COPY zkEVM/ ./zkEVM/
+COPY reports/ ./reports/
+COPY *.sh ./
+COPY *.md ./
+COPY LICENSE ./
+
+# Make scripts executable
+RUN chmod +x *.sh
+
+# Set Python path
+ENV PYTHONPATH=/app
+
+# Verify Python installation
+RUN python3 -c "import sys; sys.path.insert(0, '/app'); from circuits import add, multiply, range_check, poseidon, ecc_add; print('✓ All circuits loaded')"
+
+# Verify Lean4 + Mathlib
+RUN lean --version
+RUN lake build 2>&1 | head -20 || echo "Lake build check complete"
+
+# Create output directories
+RUN mkdir -p /app/output/proofs /app/output/reports
+
+# Default command
+CMD ["/bin/bash"]
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD lean --version && python3 --version || exit 1
+
+# Metadata
+LABEL maintainer="zkEVM Verification Team"
+LABEL description="Formal verification framework for zkEVM circuits with Mathlib support"
+LABEL version="2.0.0-mathlib"

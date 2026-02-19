@@ -1,0 +1,27 @@
+✖ [2/31] Running Mathlib.Data.Nat.Defs
+error: no such file or directory (error code: 2)
+  file: /root/openclaw_projects/zkevm-verifier-prototype/.lake/packages/mathlib/Mathlib/Data/Nat/Defs.lean
+✖ [3104/3111] Running zkEVM.EVMMulMod
+error: zkEVM/EVMMulMod.lean: bad import 'Mathlib.Data.Nat.Defs'
+✖ [3105/3111] Running zkEVM.EVMAddMod
+error: zkEVM/EVMAddMod.lean: bad import 'Mathlib.Data.Nat.Defs'
+✖ [3106/3111] Running zkEVM.EVMSub
+error: zkEVM/EVMSub.lean: bad import 'Mathlib.Data.Nat.Defs'
+✖ [3107/3111] Running zkEVM.EVMMod
+error: zkEVM/EVMMod.lean: bad import 'Mathlib.Data.Nat.Defs'
+✖ [3108/3111] Running zkEVM.EVMMul
+error: zkEVM/EVMMul.lean: bad import 'Mathlib.Data.Nat.Defs'
+✖ [3109/3111] Running zkEVM.EVMAdd
+error: zkEVM/EVMAdd.lean: bad import 'Mathlib.Data.Nat.Defs'
+✖ [3110/3111] Running zkEVM.EVMDiv
+error: zkEVM/EVMDiv.lean: bad import 'Mathlib.Data.Nat.Defs'
+Some required targets logged failures:
+- Mathlib.Data.Nat.Defs
+- zkEVM.EVMMulMod
+- zkEVM.EVMAddMod
+- zkEVM.EVMSub
+- zkEVM.EVMMod
+- zkEVM.EVMMul
+- zkEVM.EVMAdd
+- zkEVM.EVMDiv
+error: build failed

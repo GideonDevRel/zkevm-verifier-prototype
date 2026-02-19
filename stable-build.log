@@ -1,0 +1,17 @@
+✖ [3/2512] Running Mathlib.Data.Nat.Basic
+error: no such file or directory (error code: 2)
+  file: ././.lake/packages/mathlib/././Mathlib/Data/Nat/Basic.lean
+✖ [789/2512] Running zkEVM.EVMMulMod
+error: ././././zkEVM/EVMMulMod.lean: bad import 'Mathlib.Data.Nat.Basic'
+✖ [790/2512] Running zkEVM.EVMAddMod
+error: ././././zkEVM/EVMAddMod.lean: bad import 'Mathlib.Data.Nat.Basic'
+✖ [791/2512] Running zkEVM.EVMSub
+error: ././././zkEVM/EVMSub.lean: bad import 'Mathlib.Data.Nat.Basic'
+✖ [792/2512] Running zkEVM.EVMMod
+error: ././././zkEVM/EVMMod.lean: bad import 'Mathlib.Data.Nat.Basic'
+✖ [793/2512] Running zkEVM.EVMMul
+error: ././././zkEVM/EVMMul.lean: bad import 'Mathlib.Data.Nat.Basic'
+✖ [794/2512] Running zkEVM.EVMAdd
+error: ././././zkEVM/EVMAdd.lean: bad import 'Mathlib.Data.Nat.Basic'
+✖ [795/2512] Running zkEVM.EVMDiv
+error: ././././zkEVM/EVMDiv.lean: bad import 'Mathlib.Data.Nat.Basic'

@@ -1,0 +1,331 @@
+✔ [788/2511] Built proofwidgets/widgetJsAll
+✖ [2504/2511] Building zkEVM.EVMAddMod
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib:././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/LeanSearchClient/.lake/build/lib:././.lake/packages/plausible/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/build/lib LD_LIBRARY_PATH= /root/.elan/toolchains/leanprover--lean4---v4.14.0/bin/lean ././././zkEVM/EVMAddMod.lean -R ./././. -o ././.lake/build/lib/zkEVM/EVMAddMod.olean -i ././.lake/build/lib/zkEVM/EVMAddMod.ilean -c ././.lake/build/ir/zkEVM/EVMAddMod.c --json
+error: ././././zkEVM/EVMAddMod.lean:35:79: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+error: ././././zkEVM/EVMAddMod.lean:64:63: no goals to be solved
+error: ././././zkEVM/EVMAddMod.lean:64:2: unsolved goals
+case isFalse
+a b N : Word256
+h✝ : ¬↑N = 0
+this : ↑a + ↑b = ↑b + ↑a
+⊢ ⟨(↑a + ↑b) % ↑N, ⋯⟩ = ⟨(↑b + ↑a) % ↑N, ⋯⟩
+warning: ././././zkEVM/EVMAddMod.lean:94:8: declaration uses 'sorry'
+warning: ././././zkEVM/EVMAddMod.lean:109:8: declaration uses 'sorry'
+error: ././././zkEVM/EVMAddMod.lean:125:46: unsolved goals
+a b c N : Word256
+h : ↑N ≠ 0
+⊢ ((↑a + ↑b) % ↑N + ↑c % ↑N) % ↑N = (↑a + (↑b + ↑c)) % ↑N
+error: ././././zkEVM/EVMAddMod.lean:158:4: no goals to be solved
+error: ././././zkEVM/EVMAddMod.lean:167:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMAddMod.lean:183:20: tactic 'unfold' failed to unfold 'nat_to_word256' at
+  ↑(if ↑N = 0 then ⟨0, evm_addmod.proof_1⟩ else ⟨(↑a + ↑b) % ↑N, ⋯⟩) = 0
+error: ././././zkEVM/EVMAddMod.lean:217:34: application type mismatch
+  Nat.ModEq.add_left_cancel ↑a
+argument
+  ↑a
+has type
+  ℕ : Type
+but is expected to have type
+  ?m.9868 ≡ ?m.9869 [MOD ↑N] : Prop
+error: ././././zkEVM/EVMAddMod.lean:217:41: unknown constant 'Nat.ModEq.of_mod_eq'
+error: ././././zkEVM/EVMAddMod.lean:210:31: unsolved goals
+a b c N : Word256
+hN : ↑N ≠ 0
+heq : ⟨(↑a + ↑b) % ↑N, ⋯⟩ = ⟨(↑a + ↑c) % ↑N, ⋯⟩
+this : (↑a + ↑b) % ↑N = (↑a + ↑c) % ↑N
+⊢ ↑b ≡ ↑c [MOD ↑N]
+error: ././././zkEVM/EVMAddMod.lean:232:2: no goals to be solved
+warning: ././././zkEVM/EVMAddMod.lean:275:4: unused variable `a1`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMAddMod.lean:275:7: unused variable `a2`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMAddMod.lean:275:10: unused variable `b1`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMAddMod.lean:275:13: unused variable `b2`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMAddMod.lean:275:16: unused variable `N1`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMAddMod.lean:275:19: unused variable `N2`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+error: Lean exited with code 1
+✖ [2505/2511] Building zkEVM.EVMSub
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib:././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/LeanSearchClient/.lake/build/lib:././.lake/packages/plausible/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/build/lib LD_LIBRARY_PATH= /root/.elan/toolchains/leanprover--lean4---v4.14.0/bin/lean ././././zkEVM/EVMSub.lean -R ./././. -o ././.lake/build/lib/zkEVM/EVMSub.olean -i ././.lake/build/lib/zkEVM/EVMSub.ilean -c ././.lake/build/ir/zkEVM/EVMSub.c --json
+error: ././././zkEVM/EVMSub.lean:64:17: tactic 'unfold' failed to unfold 'nat_to_word256' at
+  ⟨(↑a + (2 ^ 256 - ↑b)) % 2 ^ 256, ⋯⟩ ≠ ⟨(↑b + (2 ^ 256 - ↑a)) % 2 ^ 256, ⋯⟩
+error: ././././zkEVM/EVMSub.lean:76:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMSub.lean:92:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMSub.lean:126:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMSub.lean:144:6: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  ↑a + (2 ^ 256 - ↑b)
+a b : Word256
+h_ge : ↑a ≥ ↑b
+h : ↑a + (2 ^ 256 - ↑b) = ↑a - ↑b + 2 ^ 256
+⊢ (↑a + (115792089237316195423570985008687907853269984665640564039457584007913129639936 - ↑b)) %
+      115792089237316195423570985008687907853269984665640564039457584007913129639936 =
+    ↑a - ↑b
+warning: ././././zkEVM/EVMSub.lean:155:8: declaration uses 'sorry'
+warning: ././././zkEVM/EVMSub.lean:182:5: unused variable `a`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMSub.lean:182:7: unused variable `b`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+error: ././././zkEVM/EVMSub.lean:233:38: type mismatch
+  2 ^ 256 - ↑b
+has type
+  ℕ : outParam Type
+but is expected to have type
+  ?m.12958 ≡ ?m.12959 [MOD 2 ^ 256] : Prop
+error: ././././zkEVM/EVMSub.lean:235:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMSub.lean:252:56: unsolved goals
+a b : Word256
+⊢ ((↑a + (2 ^ 256 - ↑b)) % 2 ^ 256 % 2 ^ 256 + ↑b % 2 ^ 256) % 2 ^ 256 = (↑a + (2 ^ 256 - ↑b) + ↑b) % 2 ^ 256
+error: ././././zkEVM/EVMSub.lean:254:6: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  ((↑a + (2 ^ 256 - ↑b)) % 2 ^ 256 + ↑b) % 2 ^ 256
+a b : Word256
+this : ((↑a + (2 ^ 256 - ↑b)) % 2 ^ 256 + ↑b) % 2 ^ 256 = (↑a + (2 ^ 256 - ↑b) + ↑b) % 2 ^ 256
+⊢ ((↑a + (115792089237316195423570985008687907853269984665640564039457584007913129639936 - ↑b)) %
+          115792089237316195423570985008687907853269984665640564039457584007913129639936 +
+        ↑b % 115792089237316195423570985008687907853269984665640564039457584007913129639936) %
+      115792089237316195423570985008687907853269984665640564039457584007913129639936 =
+    ↑a
+error: ././././zkEVM/EVMSub.lean:266:45: unsolved goals
+a b : Word256
+⊢ (↑a % 115792089237316195423570985008687907853269984665640564039457584007913129639936 %
+          115792089237316195423570985008687907853269984665640564039457584007913129639936 +
+        (115792089237316195423570985008687907853269984665640564039457584007913129639936 - ↑b) * 2 %
+            115792089237316195423570985008687907853269984665640564039457584007913129639936 %
+          115792089237316195423570985008687907853269984665640564039457584007913129639936) %
+      115792089237316195423570985008687907853269984665640564039457584007913129639936 =
+    (↑a + (115792089237316195423570985008687907853269984665640564039457584007913129639936 - ↑b * 2)) %
+      115792089237316195423570985008687907853269984665640564039457584007913129639936
+error: ././././zkEVM/EVMSub.lean:286:2: simp made no progress
+info: ././././zkEVM/EVMSub.lean:307:4: Try this: ring_nf
+error: ././././zkEVM/EVMSub.lean:306:78: unsolved goals
+a b : Word256
+⊢ ↑a + (115792089237316195423570985008687907853269984665640564039457584007913129639936 - ↑b) + ↑b +
+      (115792089237316195423570985008687907853269984665640564039457584007913129639936 - ↑a) =
+    231584178474632390847141970017375815706539969331281128078915168015826259279872
+error: ././././zkEVM/EVMSub.lean:308:6: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  ↑a + (2 ^ 256 - ↑b) + (↑b + (2 ^ 256 - ↑a))
+a b : Word256
+this : ↑a + (2 ^ 256 - ↑b) + (↑b + (2 ^ 256 - ↑a)) = 2 * 2 ^ 256
+⊢ ((↑a + (115792089237316195423570985008687907853269984665640564039457584007913129639936 - ↑b) + ↑b) %
+          115792089237316195423570985008687907853269984665640564039457584007913129639936 +
+        (115792089237316195423570985008687907853269984665640564039457584007913129639936 - ↑a) %
+          115792089237316195423570985008687907853269984665640564039457584007913129639936) %
+      115792089237316195423570985008687907853269984665640564039457584007913129639936 =
+    0
+error: Lean exited with code 1
+✖ [2506/2511] Building zkEVM.EVMMul
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib:././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/LeanSearchClient/.lake/build/lib:././.lake/packages/plausible/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/build/lib LD_LIBRARY_PATH= /root/.elan/toolchains/leanprover--lean4---v4.14.0/bin/lean ././././zkEVM/EVMMul.lean -R ./././. -o ././.lake/build/lib/zkEVM/EVMMul.olean -i ././.lake/build/lib/zkEVM/EVMMul.ilean -c ././.lake/build/ir/zkEVM/EVMMul.c --json
+info: ././././zkEVM/EVMMul.lean:52:2: Try this: ring_nf
+error: ././././zkEVM/EVMMul.lean:61:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMMul.lean:79:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMMul.lean:89:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMMul.lean:129:2: type mismatch
+  Nat.mod_eq_of_lt h_no_overflow
+has type
+  ↑a * ↑b % 2 ^ 256 = ↑a * ↑b : Prop
+but is expected to have type
+  ↑a * ↑b < 115792089237316195423570985008687907853269984665640564039457584007913129639936 : Prop
+error: ././././zkEVM/EVMMul.lean:141:2: no goals to be solved
+warning: ././././zkEVM/EVMMul.lean:155:8: declaration uses 'sorry'
+warning: ././././zkEVM/EVMMul.lean:175:5: unused variable `a`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMMul.lean:175:7: unused variable `b`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+error: ././././zkEVM/EVMMul.lean:212:6: tactic 'rewrite' failed, did not find instance of the pattern in the target expression
+  ↑a * ?b % ?n
+a b c : Word256
+⊢ ↑a % 115792089237316195423570985008687907853269984665640564039457584007913129639936 *
+        ((↑b % 115792089237316195423570985008687907853269984665640564039457584007913129639936 +
+            ↑c % 115792089237316195423570985008687907853269984665640564039457584007913129639936) %
+          115792089237316195423570985008687907853269984665640564039457584007913129639936) %
+      115792089237316195423570985008687907853269984665640564039457584007913129639936 =
+    (↑a * ↑b + ↑a * ↑c) % 115792089237316195423570985008687907853269984665640564039457584007913129639936
+warning: ././././zkEVM/EVMMul.lean:221:8: declaration uses 'sorry'
+error: ././././zkEVM/EVMMul.lean:252:2: no goals to be solved
+error: Lean exited with code 1
+✖ [2507/2511] Building zkEVM.EVMMulMod
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib:././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/LeanSearchClient/.lake/build/lib:././.lake/packages/plausible/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/build/lib LD_LIBRARY_PATH= /root/.elan/toolchains/leanprover--lean4---v4.14.0/bin/lean ././././zkEVM/EVMMulMod.lean -R ./././. -o ././.lake/build/lib/zkEVM/EVMMulMod.olean -i ././.lake/build/lib/zkEVM/EVMMulMod.ilean -c ././.lake/build/ir/zkEVM/EVMMulMod.c --json
+error: ././././zkEVM/EVMMulMod.lean:40:79: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+error: ././././zkEVM/EVMMulMod.lean:67:63: no goals to be solved
+error: ././././zkEVM/EVMMulMod.lean:67:2: unsolved goals
+case isFalse
+a b N : Word256
+h✝ : ¬↑N = 0
+this : ↑a * ↑b = ↑b * ↑a
+⊢ ⟨↑a * ↑b % ↑N, ⋯⟩ = ⟨↑b * ↑a % ↑N, ⋯⟩
+error: ././././zkEVM/EVMMulMod.lean:110:2: no goals to be solved
+warning: ././././zkEVM/EVMMulMod.lean:116:8: declaration uses 'sorry'
+error: ././././zkEVM/EVMMulMod.lean:132:46: unsolved goals
+a b c N : Word256
+h : ↑N ≠ 0
+⊢ ↑a * ↑b % ↑N * (↑c % ↑N) % ↑N = ↑a * (↑b * ↑c) % ↑N
+error: ././././zkEVM/EVMMulMod.lean:151:9: unknown identifier 'sum'
+warning: ././././zkEVM/EVMMulMod.lean:162:5: unused variable `a`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMMulMod.lean:162:7: unused variable `b`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMMulMod.lean:162:9: unused variable `N`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMMulMod.lean:186:8: declaration uses 'sorry'
+warning: ././././zkEVM/EVMMulMod.lean:199:4: unused variable `a1`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMMulMod.lean:199:7: unused variable `a2`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMMulMod.lean:199:10: unused variable `b1`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMMulMod.lean:199:13: unused variable `b2`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMMulMod.lean:199:16: unused variable `N1`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMMulMod.lean:199:19: unused variable `N2`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+error: ././././zkEVM/EVMMulMod.lean:214:2: no goals to be solved
+error: ././././zkEVM/EVMMulMod.lean:223:2: no applicable extensionality theorem found for
+  Word256
+warning: ././././zkEVM/EVMMulMod.lean:242:8: declaration uses 'sorry'
+warning: ././././zkEVM/EVMMulMod.lean:258:8: declaration uses 'sorry'
+error: ././././zkEVM/EVMMulMod.lean:268:4: 'secp256k1_prime' has already been declared
+error: ././././zkEVM/EVMMulMod.lean:277:2: tactic 'constructor' failed, target is not an inductive datatype
+a b : Word256
+ha : Word256 := nat_to_word256 secp256k1_prime
+hb : ↑a < secp256k1_prime
+⊢ ↑b < secp256k1_prime → ↑(evm_mulmod a b ha) < secp256k1_prime ∧ ↑(evm_mulmod a b ha) = ↑a * ↑b % secp256k1_prime
+error: ././././zkEVM/EVMMulMod.lean:310:2: no goals to be solved
+error: Lean exited with code 1
+✖ [2508/2511] Building zkEVM.EVMMod
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib:././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/LeanSearchClient/.lake/build/lib:././.lake/packages/plausible/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/build/lib LD_LIBRARY_PATH= /root/.elan/toolchains/leanprover--lean4---v4.14.0/bin/lean ././././zkEVM/EVMMod.lean -R ./././. -o ././.lake/build/lib/zkEVM/EVMMod.olean -i ././.lake/build/lib/zkEVM/EVMMod.ilean -c ././.lake/build/ir/zkEVM/EVMMod.c --json
+error: ././././zkEVM/EVMMod.lean:28:59: omega could not prove the goal:
+No usable constraints found. You may need to unfold definitions so `omega` can see linear arithmetic facts about `Nat` and `Int`, which may also involve multiplication, division, and modular remainder by constants.
+error: ././././zkEVM/EVMMod.lean:45:43: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMMod.lean:49:47: no goals to be solved
+error: ././././zkEVM/EVMMod.lean:60:37: no goals to be solved
+error: ././././zkEVM/EVMMod.lean:59:31: unsolved goals
+case isFalse
+a b : Word256
+h✝ : ¬↑b = 0
+⊢ ↑⟨↑a % ↑b, ⋯⟩ < 2 ^ 256
+error: ././././zkEVM/EVMMod.lean:74:82: unsolved goals
+a b k : Word256
+hb : ↑b ≠ 0
+hbound : ↑k * ↑b < 2 ^ 256
+⊢ (↑a + ↑k * ↑b) % 115792089237316195423570985008687907853269984665640564039457584007913129639936 % ↑b = ↑a % ↑b
+error: ././././zkEVM/EVMMod.lean:92:23: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ b ≤ 255
+where
+ b := ↑k
+error: ././././zkEVM/EVMMod.lean:93:2: simp made no progress
+error: ././././zkEVM/EVMMod.lean:105:3: function expected at
+  evm_mod x✝ m
+term has type
+  Word256
+error: ././././zkEVM/EVMMod.lean:118:3: function expected at
+  evm_mod x✝ m
+term has type
+  Word256
+error: ././././zkEVM/EVMMod.lean:135:2: no goals to be solved
+error: ././././zkEVM/EVMMod.lean:153:2: type mismatch
+  hab
+has type
+  ↑a ≤ ↑b : Prop
+but is expected to have type
+  ↑a % ↑m ≤ ↑b : Prop
+warning: ././././zkEVM/EVMMod.lean:160:8: declaration uses 'sorry'
+error: ././././zkEVM/EVMMod.lean:185:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMMod.lean:209:4: type mismatch
+  Nat.div_add_mod ↑a ↑b
+has type
+  ↑b * (↑a / ↑b) + ↑a % ↑b = ↑a : Prop
+but is expected to have type
+  ↑a = ↑a / ↑b * ↑b + ↑a % ↑b : Prop
+error: Lean exited with code 1
+✖ [2509/2511] Building zkEVM.EVMDiv
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib:././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/LeanSearchClient/.lake/build/lib:././.lake/packages/plausible/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/build/lib LD_LIBRARY_PATH= /root/.elan/toolchains/leanprover--lean4---v4.14.0/bin/lean ././././zkEVM/EVMDiv.lean -R ./././. -o ././.lake/build/lib/zkEVM/EVMDiv.olean -i ././.lake/build/lib/zkEVM/EVMDiv.ilean -c ././.lake/build/ir/zkEVM/EVMDiv.c --json
+warning: ././././zkEVM/EVMDiv.lean:63:8: declaration uses 'sorry'
+error: ././././zkEVM/EVMDiv.lean:76:2: no goals to be solved
+error: ././././zkEVM/EVMDiv.lean:89:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMDiv.lean:103:4: no goals to be solved
+warning: ././././zkEVM/EVMDiv.lean:141:8: declaration uses 'sorry'
+error: ././././zkEVM/EVMDiv.lean:161:2: type mismatch
+  Nat.div_add_mod ↑a ↑b
+has type
+  ↑b * (↑a / ↑b) + ↑a % ↑b = ↑a : Prop
+but is expected to have type
+  ↑a = ↑a / ↑b * ↑b + ↑a % ↑b : Prop
+warning: ././././zkEVM/EVMDiv.lean:177:5: unused variable `a`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMDiv.lean:177:7: unused variable `b`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+error: ././././zkEVM/EVMDiv.lean:197:2: no goals to be solved
+error: ././././zkEVM/EVMDiv.lean:223:23: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ b ≤ 255
+where
+ b := ↑k
+error: ././././zkEVM/EVMDiv.lean:224:2: simp made no progress
+error: ././././zkEVM/EVMDiv.lean:279:2: type mismatch
+  Nat.div_add_mod ↑a ↑b
+has type
+  ↑b * (↑a / ↑b) + ↑a % ↑b = ↑a : Prop
+but is expected to have type
+  ↑a = ↑a / ↑b * ↑b + ↑a % ↑b : Prop
+error: Lean exited with code 1
+✖ [2510/2511] Building zkEVM.EVMAdd
+trace: .> LEAN_PATH=././.lake/packages/Cli/.lake/build/lib:././.lake/packages/batteries/.lake/build/lib:././.lake/packages/Qq/.lake/build/lib:././.lake/packages/aesop/.lake/build/lib:././.lake/packages/proofwidgets/.lake/build/lib:././.lake/packages/importGraph/.lake/build/lib:././.lake/packages/LeanSearchClient/.lake/build/lib:././.lake/packages/plausible/.lake/build/lib:././.lake/packages/mathlib/.lake/build/lib:././.lake/build/lib LD_LIBRARY_PATH= /root/.elan/toolchains/leanprover--lean4---v4.14.0/bin/lean ././././zkEVM/EVMAdd.lean -R ./././. -o ././.lake/build/lib/zkEVM/EVMAdd.olean -i ././.lake/build/lib/zkEVM/EVMAdd.ilean -c ././.lake/build/ir/zkEVM/EVMAdd.c --json
+info: ././././zkEVM/EVMAdd.lean:61:2: Try this: ring_nf
+error: ././././zkEVM/EVMAdd.lean:71:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMAdd.lean:90:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMAdd.lean:122:4: maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+error: ././././zkEVM/EVMAdd.lean:139:2: type mismatch
+  Nat.mod_eq_of_lt h_no_overflow
+has type
+  (↑a + ↑b) % 2 ^ 256 = ↑a + ↑b : Prop
+but is expected to have type
+  ↑a + ↑b < 115792089237316195423570985008687907853269984665640564039457584007913129639936 : Prop
+error: ././././zkEVM/EVMAdd.lean:150:2: no goals to be solved
+warning: ././././zkEVM/EVMAdd.lean:176:5: unused variable `a`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././zkEVM/EVMAdd.lean:176:7: unused variable `b`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+error: ././././zkEVM/EVMAdd.lean:226:10: unknown constant 'Nat.ModEq.of_mod_eq'
+error: ././././zkEVM/EVMAdd.lean:227:38: unsolved goals
+case h₂
+a b c : Word256
+h : ⟨(↑a + ↑b) % 2 ^ 256, ⋯⟩ = ⟨(↑a + ↑c) % 2 ^ 256, ⋯⟩
+this✝ : (↑a + ↑b) % 2 ^ 256 = (↑a + ↑c) % 2 ^ 256
+this : ↑a + ↑b ≡ ↑a + ↑c [MOD 2 ^ 256]
+⊢ ↑a + ↑b + ↑b ≡ ↑a + ↑c + ↑c [MOD 2 ^ 256]
+error: ././././zkEVM/EVMAdd.lean:230:2: no applicable extensionality theorem found for
+  Word256
+error: ././././zkEVM/EVMAdd.lean:245:27: tactic 'unfold' failed to unfold 'nat_to_word256' at
+  ⟨(↑a + ↑b) % 2 ^ 256, ⋯⟩ = ⟨0, WORD_ZERO.proof_1⟩
+error: ././././zkEVM/EVMAdd.lean:277:2: simp made no progress
+error: Lean exited with code 1
+Some required builds logged failures:
+- zkEVM.EVMAddMod
+- zkEVM.EVMSub
+- zkEVM.EVMMul
+- zkEVM.EVMMulMod
+- zkEVM.EVMMod
+- zkEVM.EVMDiv
+- zkEVM.EVMAdd
+error: build failed

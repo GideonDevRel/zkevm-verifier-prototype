@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  zkevm-verifier:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zkevm-verifier:latest
+    container_name: zkevm-verifier
+    
+    volumes:
+      - ./circuits:/app/circuits
+      - ./src:/app/src
+      - ./proofs:/app/proofs
+      - ./reports:/app/reports
+      - ./output:/app/output
+    
+    environment:
+      - PYTHONPATH=/app
+      - LEAN_PATH=/root/.elan/bin
+    
+    stdin_open: true
+    tty: true
+    
+    command: /bin/bash
+    
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: zkevm-verifier:latest
+    container_name: zkevm-verifier-test
+    
+    volumes:
+      - ./circuits:/app/circuits
+      - ./src:/app/src
+      - ./proofs:/app/proofs
+      - ./reports:/app/reports
+      - ./output:/app/output
+    
+    environment:
+      - PYTHONPATH=/app
+    
+    command: /app/docker-demo.sh

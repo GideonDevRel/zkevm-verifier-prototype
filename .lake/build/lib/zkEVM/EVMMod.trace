@@ -1,0 +1,5 @@
+{"log":
+ [{"message":
+   ".> LEAN_PATH=././.lake/build/lib LD_LIBRARY_PATH= /root/.elan/toolchains/leanprover--lean4---v4.14.0/bin/lean ././././zkEVM/EVMMod.lean -R ./././. -o ././.lake/build/lib/zkEVM/EVMMod.olean -i ././.lake/build/lib/zkEVM/EVMMod.ilean -c ././.lake/build/ir/zkEVM/EVMMod.c --json",
+   "level": "trace"}],
+ "depHash": "114945627754056247"}
