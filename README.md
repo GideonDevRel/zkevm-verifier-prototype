@@ -1,6 +1,12 @@
 # zkEVM Circuit Formal Verification Framework
 
+[![GitHub](https://img.shields.io/badge/GitHub-GideonDevRel%2Fzkevm--verifier--prototype-blue)](https://github.com/GideonDevRel/zkevm-verifier-prototype)
+[![Lean](https://img.shields.io/badge/Lean-4.14.0-green)](https://lean-lang.org)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+
 **A Python-to-Lean4 framework for formally verifying zkEVM circuits**
+
+> 🔗 **Repository**: https://github.com/GideonDevRel/zkevm-verifier-prototype
 
 This prototype demonstrates automated formal verification of zero-knowledge EVM circuits by translating Python circuit definitions into Lean4 theorems and proving their correctness.
 
