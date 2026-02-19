@@ -36,3 +36,6 @@ Thumbs.db
 *.bak
 generate_simplified_proofs.sh
 fix_proofs.sh
+
+# Private docs (local only)
+docs/
